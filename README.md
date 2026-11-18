@@ -44,6 +44,14 @@ npx -y skills add https://github.com/U4F5Va6c/agent-ready-skill/tree/v0.1.0/skil
 
 > 这次 Agent 又在测试里用了 sleep，按 agent-ready 的经验回流决定该改哪里。
 
+## 来源与上游同步
+
+方法提炼自 [pingdotgg/t3code](https://github.com/pingdotgg/t3code) 的 `main` 分支。[上游同步](docs/upstream.md) 记录了已审阅到的上游提交、每份参考对应的上游路径，以及从上游更新中吸收、改写或删除方法的流程。
+
+使用示例：
+
+> 按 docs/upstream.md 检查 T3 Code 上游自上次审阅以来的变化，列出值得吸收的方法，再修订 agent-ready。
+
 ## 维护
 
 本仓库是唯一的开发源。验证与发布见 [CONTRIBUTING.md](CONTRIBUTING.md)。问题通过 Issues 跟踪，修改通过 PR 审阅。

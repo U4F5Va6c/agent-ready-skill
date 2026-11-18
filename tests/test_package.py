@@ -61,6 +61,11 @@ class PackageTests(unittest.TestCase):
             with self.subTest(file=path.relative_to(SKILL)):
                 self.assertIn(path.resolve(), routed)
 
+    def test_upstream_records_full_reviewed_commit(self):
+        # The sync diff starts from this SHA; a short or missing one makes it ambiguous.
+        text = (ROOT / "docs" / "upstream.md").read_text()
+        self.assertRegex(text, r"(?m)^- 已审阅至：`[0-9a-f]{40}`（\d{4}-\d{2}-\d{2}）")
+
     def test_skill_contains_no_machine_paths(self):
         for path in SKILL.rglob("*"):
             if path.is_file():
