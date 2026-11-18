@@ -1,6 +1,6 @@
 ---
 name: agent-ready
-description: 把仓库打造成 Agent 能高效、安全工作的环境，方法提炼自 T3 Code。用于接入或审计仓库的 Agent 就绪程度；编写或修订 AGENTS.md、CLAUDE.md 与 docs/ 文档；搭建变更检查命令、测试规则和隔离开发环境；以及 Agent 出错后决定把经验沉淀到哪一层。
+description: 把仓库打造成 Agent 能高效、安全工作的环境，方法提炼自 T3 Code。用于接入或审计仓库的 Agent 就绪程度；编写或修订 AGENTS.md、CLAUDE.md 与 docs/ 文档；搭建变更检查命令和隔离开发环境；制定测试规则，扫描并清理冗余测试；以及 Agent 出错后决定把经验沉淀到哪一层。
 ---
 
 # Agent 就绪仓库
@@ -21,7 +21,9 @@ description: 把仓库打造成 Agent 能高效、安全工作的环境，方法
 | 编写或修订 AGENTS.md / CLAUDE.md、嵌套指令、仓库专属 Skill | [指令文件](references/instructions.md)；骨架见 [模板](assets/AGENTS.template.md) |
 | 新增或修订 docs/ 下的用户指南、内部文档、操作手册及索引 | [文档体系](references/docs-system.md) |
 | 撰写人或 Agent 会读的文字：文档、注释、lint 或报错信息、提交与 MR 描述 | [文风](references/style.md) |
-| 搭建或修订变更检查命令、测试规则、开发环境、测试数据、交付证据 | [验证与环境](references/verification.md) |
+| 搭建或修订变更检查命令、开发环境、测试数据、交付证据 | [验证与环境](references/verification.md) |
+| 编写或审阅测试，制定测试规则与防回涨护栏 | [测试](references/testing.md) |
+| 扫描并清理冗余测试；测试套件变慢、偶发失败变多 | [冗余测试清理](references/test-cleanup.md) |
 | Agent 出错、评审反复指出同类问题、指令文件膨胀 | [经验回流](references/feedback-loop.md) |
 
 ## 与其他 Skills 分工

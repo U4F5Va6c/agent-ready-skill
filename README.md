@@ -13,7 +13,9 @@
 | [指令文件](skills/agent-ready/references/instructions.md) | 规范源、准入测试、章节骨架、篇幅预算、仓库专属 Skill |
 | [文档体系](skills/agent-ready/references/docs-system.md) | 按读者分层、写入门槛、索引、术语表、工作产物 |
 | [文风](skills/agent-ready/references/style.md) | 句子与结构规则、注释、报错消息、中文写作、改写对照 |
-| [验证与环境](skills/agent-ready/references/verification.md) | 变更检查命令、测试规则、交付证据、隔离的开发环境 |
+| [验证与环境](skills/agent-ready/references/verification.md) | 变更检查命令、交付证据、隔离的开发环境 |
+| [测试](skills/agent-ready/references/testing.md) | 写什么、在哪一层写、确定性、审阅测试、防止回涨 |
+| [冗余测试清理](skills/agent-ready/references/test-cleanup.md) | 全面扫描并安全删除没有信号的测试：评分标准、多轮评审、按语法树删除、前后对比 |
 | [经验回流](skills/agent-ready/references/feedback-loop.md) | 经验落在哪一层、规则写成检查、标准共享、评测、上下文预算 |
 | [AGENTS 模板](skills/agent-ready/assets/AGENTS.template.md) | 按需取用的指令文件骨架 |
 
@@ -43,6 +45,8 @@ npx -y skills add https://github.com/U4F5Va6c/agent-ready-skill/tree/v0.1.0/skil
 > 使用 agent-ready 审计这个仓库，告诉我 Agent 在这里最容易犯什么错，以及最小的改法。
 
 > 这次 Agent 又在测试里用了 sleep，按 agent-ready 的经验回流决定该改哪里。
+
+> 用 agent-ready 扫描 backend 的测试，先出一份冗余测试报告，不要删除。
 
 ## 来源与上游同步
 

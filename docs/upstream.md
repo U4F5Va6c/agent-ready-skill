@@ -14,7 +14,9 @@
 |---|---|---|
 | `AGENTS.md`、`CLAUDE.md` | 规范源、章节骨架、高危操作、改动影响面、品味、文档规则 | [指令文件](../skills/agent-ready/references/instructions.md)、[文档体系](../skills/agent-ready/references/docs-system.md)、[文风](../skills/agent-ready/references/style.md) |
 | `docs/README.md`、`docs/internals/glossary.md` | 文档索引、术语表写法 | [文档体系](../skills/agent-ready/references/docs-system.md) |
-| `docs/internals/testing.md`、`CONTRIBUTING.md`、`.github/pull_request_template.md` | 测试规则、交付证据 | [验证与环境](../skills/agent-ready/references/verification.md) |
+| `docs/internals/testing.md`、`.macroscope/check-run-agents/test-signal.md`、`evals/test-signal/`、`.github/scripts/test-delta.cjs`、`.github/workflows/pr-size.yml` | 测试规则、测试评审、防回涨护栏 | [测试](../skills/agent-ready/references/testing.md) |
+| 测试清理类 PR（来源：[#22557](https://github.com/pingdotgg/t3code/pull/22557)；后续护栏：[#26166](https://github.com/pingdotgg/t3code/pull/26166)、[#34559](https://github.com/pingdotgg/t3code/pull/34559)） | 评分标准、多轮评审、按语法树删除、前后对比 | [冗余测试清理](../skills/agent-ready/references/test-cleanup.md) |
+| `CONTRIBUTING.md`、`.github/pull_request_template.md` | 交付证据 | [验证与环境](../skills/agent-ready/references/verification.md) |
 | `scripts/check-changed.ts`、`scripts/prove-scenario.ts`、`docs/operations/scenarios.md` | 变更检查命令、基准对照证明 | [验证与环境](../skills/agent-ready/references/verification.md) |
 | `t3.json`、`scripts/setup-worktree.ts`、`scripts/dev-runner.ts`、`scripts/lib/dev-memory-limit.ts`、`apps/server/scripts/migrate-dev-db.ts`、`docs/operations/development.md` | 工作区初始化标记、隔离、资源上限、测试数据 | [验证与环境](../skills/agent-ready/references/verification.md#开发环境) |
 | `oxlint-plugin-t3code/`、`vite.config.ts` | 写成 lint 的规则、写给 Agent 的报错消息、绕过须写理由、提交前钩子 | [经验回流](../skills/agent-ready/references/feedback-loop.md#机械规则写成检查)、[文风](../skills/agent-ready/references/style.md#报错与-lint-消息) |
@@ -35,12 +37,13 @@
      scripts/prove-scenario.ts scripts/dev-runner.ts scripts/lib/dev-memory-limit.ts \
      scripts/setup-worktree.ts t3.json apps/server/scripts/migrate-dev-db.ts .agents/skills \
      .cursor/rules .coderabbit.config.ts .macroscope .github/pull_request_template.md \
-     .github/workflows/agent-context-budget.yml evals scripts/sync-reference-repos.ts
+     .github/workflows/agent-context-budget.yml evals scripts/sync-reference-repos.ts \
+     .github/scripts/test-delta.cjs .github/workflows/pr-size.yml
    git diff --name-only --diff-filter=A "$B" "$U" -- docs/internals docs/operations .agents \
      .github/workflows .macroscope oxlint-plugin-t3code/rules evals
    ```
 
-   第一条列出关注路径上的提交。第二条找新增的文件：新的内部文档、仓库专属 Skill、lint 规则、评审检查或评测，往往意味着新方法。命中的新路径如果值得长期关注，加进上表和命令。
+   第一条列出关注路径上的提交。另外，用 `git log --oneline --diff-filter=D --shortstat "$B..$U" -- '*.test.*'` 查看有没有新的大规模测试删除；有的话，读它的 PR 描述，看清理方法是否有变化。第二条找新增的文件：新的内部文档、仓库专属 Skill、lint 规则、评审检查或评测，往往意味着新方法。命中的新路径如果值得长期关注，加进上表和命令。
 3. **逐条判断。** 用 `git show <提交> -- <路径>` 读 diff，把每项变化归入三类之一：
    - **新方法**：多数项目都会遇到，换成通用说法后仍然成立。加进对应参考。
    - **方法变了或被删除**：重写或删除对应段落。上游删掉一条规则，通常说明它没用或有害，这比新增更值得跟进。
