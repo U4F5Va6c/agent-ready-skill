@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent 就绪仓库"
+  short_description: "审计和改进仓库的指令文件、文档体系、文风、验证命令与经验回流"
+  default_prompt: "使用 $agent-ready 审计当前仓库对 Agent 的就绪程度，按影响列出最小改动。"
