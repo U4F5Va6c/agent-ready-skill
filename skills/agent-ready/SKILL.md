@@ -1,6 +1,6 @@
 ---
 name: agent-ready
-description: 把仓库打造成 Agent 能高效、安全工作的环境，方法提炼自 T3 Code。用于接入或审计仓库的 Agent 就绪程度；编写或修订 AGENTS.md、CLAUDE.md 与 docs/ 文档；搭建变更检查命令和隔离开发环境；制定测试规则，扫描并清理冗余测试；以及 Agent 出错后决定把经验沉淀到哪一层。
+description: 让仓库成为 Agent 能高效、安全工作的环境。用于接入或审计仓库的 Agent 就绪程度；编写或修订 AGENTS.md、CLAUDE.md、仓库专属 Skill；新增、重组或修剪 docs/ 文档；搭建变更检查命令、隔离开发环境，以及写给 Agent 看的 lint 和评审规则；制定测试规则，清理冗余测试；同类问题被指出第二次或用户要求“以后都这样”时，决定把经验落在哪一层。只是按仓库现有规范写业务代码、测试或提交信息时不用；编写通用 Skill 用 writing-for-agents。方法提炼自 T3 Code。
 ---
 
 # Agent 就绪仓库
@@ -19,12 +19,12 @@ description: 把仓库打造成 Agent 能高效、安全工作的环境，方法
 |---|---|
 | 接入新仓库，或审计现有仓库的 Agent 就绪程度 | [审计与接入](references/audit.md) |
 | 编写或修订 AGENTS.md / CLAUDE.md、嵌套指令、仓库专属 Skill | [指令文件](references/instructions.md)；骨架见 [模板](assets/AGENTS.template.md) |
-| 新增或修订 docs/ 下的用户指南、内部文档、操作手册及索引 | [文档体系](references/docs-system.md) |
+| 新增、修订、重组或修剪 docs/ 下的用户指南、内部文档、操作手册及索引 | [文档体系](references/docs-system.md) |
 | 撰写人或 Agent 会读的文字：文档、注释、lint 或报错信息、提交与 MR 描述 | [文风](references/style.md) |
 | 搭建或修订变更检查命令、开发环境、测试数据、交付证据 | [验证与环境](references/verification.md) |
 | 编写或审阅测试，制定测试规则与防回涨护栏 | [测试](references/testing.md) |
 | 扫描并清理冗余测试；测试套件变慢、偶发失败变多 | [冗余测试清理](references/test-cleanup.md) |
-| Agent 出错、评审反复指出同类问题、指令文件膨胀 | [经验回流](references/feedback-loop.md) |
+| Agent 出错、评审反复指出同类问题、用户要求“以后都这样”、指令文件膨胀；编写写给 Agent 看的 lint 和评审规则 | [经验回流](references/feedback-loop.md) |
 
 ## 与其他 Skills 分工
 
